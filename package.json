@@ -1,0 +1,23 @@
+{
+	"name": "WebNowPlayingCloudMusicBridge",
+	"description": "WebNowPlaying网易云连接器",
+	"version": "0.0.1",
+	"bin": "ncme.js",
+	"devDependencies": {
+		"pkg": "*",
+		"@zeit/ncc": "^0.17.4"
+	},
+	"dependencies": {
+		"ws": "^6.2.1"
+	},
+	"pkg": {
+		"assets": "./in.js"
+	},
+	"scripts": {
+		"run": "node ncme.js",
+		"ncc": "./node_modules/.bin/ncc.cmd build ncme.js -o dist",
+		"pkg": "./node_modules/.bin/pkg.cmd package.json --targets node10-win-x86 --out-path=dist/"
+	},
+	"author": "huhu",
+	"license": "ISC"
+}
