@@ -1,0 +1,2 @@
+# WebNowPlayingCloudMusicBridge
+连接WebNowPlaying和CloudMusic
