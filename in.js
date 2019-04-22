@@ -213,6 +213,9 @@ var huhuwnp = function() {
                             updateTitle();
                             updateArtist();
                         }
+                    } else if (temp == null) {
+                        updateTitle();
+                        updateArtist();
                     }
                 } else {
                     updateTitle();
@@ -583,7 +586,9 @@ var huhuwnp = function() {
                 return words.getElementsByTagName('p')[0].innerText.replace(/^\s+|\s+$/g, '');
             }
             ih.lyric = function() {
-                var lrc = list.innerText.replace(/^\s+|\s+$/g, '');
+                var lrc = list.innerText;
+                if (lrc.indexOf('无歌词') > -1) return null;
+                lrc = lrc.replace(/^\s+|\s+$/g, '');
                 return lrc.replace(/\s+/g, '') == ih.title().replace(/\s+/g, '') ? null : lrc;
             }
             ih.albumih = null;
@@ -601,7 +606,7 @@ var huhuwnp = function() {
             ih.volume = null;
             ih.rating = null;
             ih.repeat = function() {
-                switch (playbar.getElementsByClassName('type')[0].title) {
+                switch (playbar[0].getElementsByClassName('type')[0].title) {
                     case '列表循环':
                     case '顺序循环':
                         return 0;
@@ -633,7 +638,7 @@ var huhuwnp = function() {
             eh.progressSeconds = null;
             eh.volume = null;
             eh.repeat = function() {
-                if (tn() == 0) playbar.getElementsByClassName('type')[0].click();
+                if (tn() == 0) playbar[0].getElementsByClassName('type')[0].click();
             }
             eh.shuffle = null;
             eh.toggleThumbsUp = null;
