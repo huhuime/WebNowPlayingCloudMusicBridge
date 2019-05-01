@@ -593,10 +593,19 @@ var huhuwnp = function() {
             }
             ih.albumih = null;
             ih.cover = null;
-            /* ih.cover = function() {
-                var url = words.getElementsByClassName('j-cover')[0].src.replace('orpheus://cache/?', '');
+            ih.cover = function() {
+                var url = words.getElementsByClassName('j-cover')[0].src.replace('orpheus://cache/?', '').replace(/\?.*/g, '');
+                /* var urla = url.split('');
+                var urlbuffer = '';
+                for (var i = 0; i < urla.length; i++) {
+                  urlbuffer = urlbuffer + urla[i];
+                  if (i % 45 === 0) {
+                    urlbuffer += '\n';
+                  }
+                }
+                alert(urlbuffer); */
                 return url;
-            }; */
+            };
             ih.durationString = function() {
                 return timeAll[tn()].innerText;
             }

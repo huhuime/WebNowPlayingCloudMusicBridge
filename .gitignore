@@ -1,3 +1,6 @@
+/CloudMusic
+config.json
+.gitignore
 # Logs
 logs
 *.log
